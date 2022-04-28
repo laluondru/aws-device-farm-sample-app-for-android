@@ -9,8 +9,8 @@ phases:
       - ls -lrt *
       - id
       - who 
-      - sudo add-apt-repository universe && sudo apt-get update && android-tools-fastboot
-      - apt-get install android-sdk
+      - sudo add-apt-repository universe && sudo apt-get update && sudo apt-get android-tools-fastboot
+      - sudo apt-get install android-sdk
       - export ANDROID_HOME=/usr/lib/android-sdk
       - sdkmanager --version
       - sdkmanager --list
