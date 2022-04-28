@@ -7,8 +7,10 @@ phases:
       - echo $HOME
       - pwd
       - ls -lrt */*
-      - cd $CODEBUILD_SRC_DIR
-      - "sdk.dir=/home/$USERNAME/Android/Sdk"
+      - echo $USERNAME
+      - echo $ANDROID_HOME
+      - echo $sdk.dir
+      #- "sdk.dir=/home/$USERNAME/Android/Sdk"
       - './gradlew wrapper --gradle-version 6.0.1'
   build:
     commands:
