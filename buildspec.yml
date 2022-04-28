@@ -6,12 +6,13 @@ phases:
     commands:
       - echo $HOME
       - pwd
-      - ls -lrt */*
-      - echo $USERNAME
-      - echo $ANDROID_HOME
-      - echo $sdk.dir
+      - ls -lrt *
+      - id
+      - who 
+      - sdkmanager --version
+      - sdkmanager --list
       #- "sdk.dir=/home/$USERNAME/Android/Sdk"
-      - './gradlew wrapper --gradle-version 6.0.1'
+      #- './gradlew wrapper --gradle-version 6.0.1'
   build:
     commands:
       - chmod +x ./gradlew
