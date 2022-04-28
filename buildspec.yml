@@ -10,7 +10,7 @@ phases:
       - id
       - who 
       - sudo add-apt-repository universe && sudo apt-get update
-      - sudo apt install android-sdk
+      - sudo apt-get install android-sdk -y
       #- sudo apt install android-sdk
       - export ANDROID_HOME=/usr/lib/android-sdk
       - sdkmanager --version
