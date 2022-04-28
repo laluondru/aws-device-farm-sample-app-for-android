@@ -4,6 +4,11 @@ phases:
     runtime-versions: 
       java: corretto11
     commands:
+      - echo $HOME
+      - pwd
+      - ls -lrt */*
+      - cd $CODEBUILD_SRC_DIR
+      - "sdk.dir=/home/$USERNAME/Android/Sdk"
       - './gradlew wrapper --gradle-version 6.0.1'
   build:
     commands:
