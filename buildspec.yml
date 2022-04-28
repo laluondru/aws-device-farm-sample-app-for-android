@@ -9,6 +9,8 @@ phases:
       - ls -lrt *
       - id
       - who 
+      - apt-get install android-sdk
+      - export ANDROID_HOME=/usr/lib/android-sdk
       - sdkmanager --version
       - sdkmanager --list
       #- "sdk.dir=/home/$USERNAME/Android/Sdk"
