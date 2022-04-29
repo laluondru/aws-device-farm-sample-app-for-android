@@ -21,7 +21,6 @@ phases:
                  export JAVA_HOME \n
                  export ANDROID_HOME \n
                  PATH="$JAVA_HOME/bin:$ANDROID_HOME/cmdline-tools/tools/bin:$ANDROID_HOME/platform-tools:$PATH"'  >> ~/.bashrc
-      - sudo export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
       - sdkmanager --version
       - sdkmanager --list
       - sdkmanager "platform-tools" "platforms;android-32"
