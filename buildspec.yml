@@ -3,32 +3,8 @@ phases:
   install:
     runtime-versions: 
       java: corretto11
-    commands:
-      - sudo add-apt-repository universe && sudo apt-get update
-      - sudo apt-get install android-sdk -y
-      - sudo mkdir ~/DevTools
-      - sudo mkdir ~/DevTools/Android
-      - sudo mkdir ~/DevTools/Android/cmdline-tools
-      - export ANDROID_HOME=/usr/lib/android-sdk
-      - sudo wget https://dl.google.com/android/repository/commandlinetools-linux-8092744_latest.zip
-      - unzip commandlinetools-linux-8092744_latest.zip -d cmdline-tools
-      - mv cmdline-tools tools
-      - mv tools ~/DevTools/Android/cmdline-tools/
-      - ls -lrt ~/DevTools/Android/cmdline-tools/tools
-      - echo -e 'DEV_TOOLS="/home/ubuntu/DevTools" \n
-                 JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64" \n
-                 ANDROID_HOME="$DEV_TOOLS/Android" \n
-                 export JAVA_HOME \n
-                 export ANDROID_HOME \n
-                 PATH="$JAVA_HOME/bin:$ANDROID_HOME/cmdline-tools/tools/bin:$ANDROID_HOME/platform-tools:$PATH"'  >> ~/.bashrc
-      - source ~/.bashrc           
-      - sdkmanager --version
-      - sdkmanager --list
-      - sdkmanager "platform-tools" "platforms;android-32"
-      - sdkmanager "build-tools" "build-tools;32.0.0"
-      #- "sdk.dir=/home/$USERNAME/Android/Sdk"
-      #- './gradlew wrapper --gradle-version 6.0.1'
-  build:
+      android: latest
+   build:
     commands:
       - chmod +x ./gradlew
       - ./gradlew assembleDebug
