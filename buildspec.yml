@@ -8,6 +8,7 @@ phases:
     commands:
       - chmod +x ./gradlew
       - ./gradlew assembleDebug
+      - echo "it is done"
 artifacts:
   files:
      - './android/app/build/outputs/**/*.apk'
