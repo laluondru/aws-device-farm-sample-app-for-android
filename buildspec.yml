@@ -4,22 +4,28 @@ phases:
     runtime-versions: 
       java: corretto11
     commands:
-      - echo $HOME
-      - pwd
-      - ls -lrt *
-      - id
-      - who 
       - sudo add-apt-repository universe && sudo apt-get update
       - sudo apt-get install android-sdk -y
-      #- sudo apt install android-sdk
-      - export ANDROID_HOME=/usr/lib/android-sdk
-      - wget https://dl.google.com/android/repository/commandlinetools-linux-8092744_latest.zip
-      - unzip commandlinetools-linux-8092744_latest.zip -d cmdline-tools
-      - mkdir --parents "$ANDROID_HOME/cmdline-tools/latest"
-      - sudo mv cmdline-tools/* "$ANDROID_HOME/cmdline-tools/latest/"
-      - export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
+      - sudo mkdir ~/DevTools
+      - sudo mkdir ~/DevTools/Android
+      - sudo mkdir ~/DevTools/Android/cmdline-tools
+      - sudo export ANDROID_HOME=/usr/lib/android-sdk
+      - sudo wget https://dl.google.com/android/repository/commandlinetools-linux-8092744_latest.zip
+      - sudo unzip commandlinetools-linux-8092744_latest.zip -d cmdline-tools
+      - sudo mv cmdline-tools tools
+      - sudo mv tools ~/DevTools/Android/cmdline-tools/
+      - ls -l ~/DevTools/Android/cmdline-tools/tools
+      - echo -e 'DEV_TOOLS="/home/$ubuntu/DevTools" \n
+                 JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64" \n
+                 ANDROID_HOME="$DEV_TOOLS/Android" \n
+                 export JAVA_HOME \n
+                 export ANDROID_HOME \n
+                 PATH="$JAVA_HOME/bin:$ANDROID_HOME/cmdline-tools/tools/bin:$ANDROID_HOME/platform-tools:$PATH"'  >> ~/.bashrc
+      - sudo export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
       - sdkmanager --version
       - sdkmanager --list
+      - sdkmanager "platform-tools" "platforms;android-32"
+      - sdkmanager "build-tools" "build-tools;32.0.0"
       #- "sdk.dir=/home/$USERNAME/Android/Sdk"
       #- './gradlew wrapper --gradle-version 6.0.1'
   build:
