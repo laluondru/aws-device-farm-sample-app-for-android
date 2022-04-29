@@ -3,7 +3,7 @@ phases:
   install:
     runtime-versions: 
       java: corretto11
-      android: 28
+      #android: 28
    build:
     commands:
       - chmod +x ./gradlew
