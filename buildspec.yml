@@ -14,13 +14,14 @@ phases:
       - unzip commandlinetools-linux-8092744_latest.zip -d cmdline-tools
       - mv cmdline-tools tools
       - mv tools ~/DevTools/Android/cmdline-tools/
-      - ls -l ~/DevTools/Android/cmdline-tools/tools
-      - echo -e 'DEV_TOOLS="/home/$ubuntu/DevTools" \n
+      - ls -lrt ~/DevTools/Android/cmdline-tools/tools
+      - echo -e 'DEV_TOOLS="/home/ubuntu/DevTools" \n
                  JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64" \n
                  ANDROID_HOME="$DEV_TOOLS/Android" \n
                  export JAVA_HOME \n
                  export ANDROID_HOME \n
                  PATH="$JAVA_HOME/bin:$ANDROID_HOME/cmdline-tools/tools/bin:$ANDROID_HOME/platform-tools:$PATH"'  >> ~/.bashrc
+      - source ~/.bashrc           
       - sdkmanager --version
       - sdkmanager --list
       - sdkmanager "platform-tools" "platforms;android-32"
